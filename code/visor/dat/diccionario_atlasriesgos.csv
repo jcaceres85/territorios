@@ -1,0 +1,168 @@
+capa,campo,etiqueta
+sist_topoformas,NOMBRE,Sistema
+provincia_fisio,NOMBRE,Provincia
+subprov_fisio,NOMBRE,Subprovincia
+mde_mpio_mxl,,Elevación (msnm)
+zona_inund,,
+geologia,TIPO_LEY,Tipo de roca
+edafologia,NOM_SUE1,Tipo de suelo
+canal_riego,TIPO,Tipo
+canal_riego,SUBTIPO,Subtipo
+canal_riego,NOMBRE,Nombre
+canal_riego,CARGO,Cargo
+canal_riego,MODULO,Módulo
+cauce_rio_colorado,,
+cuenca_hidro,REGION,Región
+cuenca_hidro,CUENCA,Cuenca
+cuerpo_agua_inter,
+dren_134,,
+dren_ppal,NOMBRE,Nombre
+dren_ppal,MODULO,Módulo
+dren_ramal_subramal,TIPO,Tipo
+dren_ramal_subramal,NOMBRE,Nombre
+dren_ramal_subramal,MODULO,Módulo
+dv_dren134,,
+modulo_riego,DR014_AREA,Área (m²)
+modulo_riego,DR014MODU,Número de módulo
+modulo_riego,TOTAL_USER,Usuarios
+modulo_riego,TOTAL_VOL,Volumen anual (m³)
+modulo_riego,TOTAL_POZS,Pozos
+arroyo_ppal,TIPO,Tipo
+arroyo_ppal,NOMBRE,Nombre
+acuiferos,NOM_REGION,Nombre de la región
+acuiferos,CLV_ACUI,Clave del acuífero
+acuiferos,NOM_ACUI,Nombre del acuífero
+acuiferos,AREA_KM2,Superficie (km²)
+acuiferos,DESC_DISPO,Disponibilidad
+acuiferos,SOBREEXP,Sobreexplotación
+acuiferos,FECHA_DOFD,Fecha de publicación (DOF)
+unidad_geohidro,UNID_GEOHI,Unidad geohidrológica
+unidad_geohidro,AREA,Superficie (m²)
+tipo_clima,CLIMA_TIPO,Tipo de clima
+tipo_clima,DES_TEM,Clima
+tipo_clima,DEC_PREC,Precipitación
+temp_med_anual,CLAVESTEM,Temperatura media
+temp_max_abs,TA_RANGO,Temperatura máxima absoluta (°C)
+temp_max_prom,TA_RANGO,Temperatura máxima promedio (°C)
+temp_min_abs,TA_RANGO,Temperatura mínima absoluta (°C)
+temp_min_prom,TA_RANGO,Temperatura mínima promedio (°C)
+temp_min_extrema,,
+uso_suelo,CVE_G,Tipología
+uso_suelo,RAP,Agrícola
+uso_suelo,ACUI,Acuícola
+uso_suelo,PC,Pastizal cultivado
+uso_suelo,IEFF,"Información ecológica, florística y fisionómica"
+uso_suelo,H2O,Cuerpo de agua
+vegetacion,descripcio,Tipología
+area_nat_prot,NOMBRE,Nombre
+area_nat_prot,CAT_DECRET,Categoría de decreto
+area_nat_prot,CAT_MANEJO,Categoría de manejo
+area_nat_prot,ESTADOS,Estados
+area_nat_prot,MUNICIPIOS,Municipios
+area_nat_prot,REGION,Región
+area_nat_prot,SUPERFICIE,Superficie (m²)
+area_nat_prot,ULT_DOF,Última publicación (DOF)
+sitio_ramsar,RAMSAR,Ubicación del sitio
+sitio_ramsar,FECHA_INGR,Fecha de ingreso
+sitio_ramsar,MUNICIPIOS,Municipios
+sitio_ramsar,NUM_RAMSAR,Número de registro RAMSAR
+area_conserv,,
+humedal,DESCRIP,Región
+humedal,HECTAREA,Superficie (ha)
+humedal,SUELO,Suelo
+humedal,VEGETACION,Vegetación
+humedal,USO,Uso del suelo
+humedal,DRENAJE,Drenaje
+humedal,CUERPO_H2O,Cuerpo de agua
+humedal,CORRIENTE,Corriente
+humedal,ESTADO,Estado
+humedal,NOMHUMEDAL,Nombre
+humedal,REGION_HID,Región hidrográfica
+humedal,NOM_CUENCA,Cuenca
+asist_social,NOMBRE,Nombre
+asist_social,TIPO,Tipo
+asist_social,LOC,Localidad
+bomberos,NOMBRE,Nombre
+bomberos,DIRECCION,Dirección
+bomberos,LOCALIDAD,Localidad
+est_serv,RAZON_SOC,Nombre
+est_serv,UBICACION,Dirección
+est_serv,SUBTIPO,Tipo
+hospital,NOMBRE,Nombre
+hospital,TIPO,Tipo
+hospital,INT,Institución
+preescolar1,MODEL,Modalidad
+preescolar_1,LOC,Localidad
+preescolar_1,NOMBRE,Nombre
+primaria_1,NOMBRE,Nombre
+primaria_1,MODAL,Modalidad
+primaria_1,LOC,Localidad
+secundaria_1,NOMBRE,Nombre
+secundaria_1,MODAL,Modalidad
+secundaria_1,LOC,Localidad
+bach_abierto,NOMBRE,Nombre
+bach_abierto,LOC,Localidad
+bach_gral,NOMBRE,Nombre
+bach_gral,MODAL,Modalidad
+bach_gral,LOC,Localidad
+bach_tec_prof,NOMBRE,Nombre
+bach_tec_prof,LOC,Localidad
+reserv_cdmxl,,
+volcan,,
+fallas_gral,,
+falla_Suarez2008,Name,Nombre
+estruct_dan_falla_cerroprieto,,
+sitio_subsidencia,,
+agrieta_fi79_80,,
+ctro_disper,,
+fallas_artSuarez,Layer,Nombre
+sismo_3_3_9,Name,Intensidad
+sismo1892_7_2,,
+sismo1934_6_5,,
+sismo_hist_m_7,Name,Intensidad
+sismo_hist_m_7,DATE,Año
+sismo_6_6_9,Name,Intensidad
+sismo_6_6_9,DATE,Año
+sismo_5_5_9,Name,Intensidad
+sismo_4_4_9,Name,Intensidad
+tsunamis,AREA_RECEP,Área de recepción
+pendientes_mpio_mxl,VALUE,Rangos (°)
+suscep_ladera,Value,Grado
+sus_inest_laderas,Value,Grado
+volcan_arena_centro1940,,
+volcan_arena_imperial1979,,
+volcan_arena_victoria1980,,
+zona_licue_agrieta,,
+canada,,
+agrietamiento,Field1,Ubicación
+agrietamiento,Field3,Elemento dañado
+est_clima,ALT_m,Altura de la estación (m)
+est_clima,NO_EST,Número de estación
+est_clima,NOM_EST,Nombre de la estación
+prob_sequia,,
+ind_heladas,NOM_MUN,Nombre de municipio
+ind_heladas,POB2010,Población
+ind_heladas,ESTADO_1,Estado
+ind_heladas,PELIGRO_PO,Grado (índice)
+isoterma_int,Intensidad,Intensidad
+isoterma_int,Contour,Temperatura (°C)
+temp_min_estrema,Value,Temperatura (°C)
+dias_granizo,DIAS_GRANI,Días con granizo
+int_granizo,OBSERV,Cantidad de granziadas
+int_granizo,INF_COMPL,Intensidad
+prob_alt_nevada,RANGO,Rango de elevación (msnm)
+prob_alt_nevada,PROBABILID,Probabilidad de nevada
+tray_ciclon,NOMBRE,Nombre
+tray_ciclon,CLASIF,Clasificación
+tray_ciclon,FECHA,Fecha
+ciclon_costa,Name,Cantidad de impactos
+afect_loc_ciclon,Name,Nombre de la localidad
+afect_loc_ciclon,PopupInfo,Número de ciclones impactados
+pred_afect_dren134,CLAVECATAS,Clave catastral
+pred_afect_dren134,SUPERFICIE,Superficie (m²)
+pred_afect_dren134,GIRO,Giro
+pred_afect_dren134,RIESGO_1,Nivel de riesgo
+inund_1982,Value,Profundidad (m)
+inund_1983,Value,Profundidad (m)
+inund_1995,Value,Profundidad (m)
+inund_2008,Value,Profundidad (m)

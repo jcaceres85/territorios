@@ -24,7 +24,7 @@ http {
     server {
         listen              $HTTP_PORT;
         server_name         $HTTP_HOST 127.0.0.1 nginx;
-
+        root /code;
         include spcgeonode.conf;
     }
 

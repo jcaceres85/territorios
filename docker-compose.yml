@@ -45,6 +45,13 @@ services:
     env_file:
       - ./scripts/docker/env/${SET_DOCKER_ENV}/geoserver.env
 
+  php:
+    image: php:7-fpm
+    links:
+      - db
+    volumes:
+      - ./code:/code
+
   django:
     restart: unless-stopped
     image: geonode/geonode:3.1
@@ -109,6 +116,9 @@ services:
       - "80:80"
     volumes:
       - statics:/mnt/volumes/statics
+      - ./code:/code
+    links:
+      - php
 
   data-dir-conf:
     image: geonode/geoserver_data:2.17.2

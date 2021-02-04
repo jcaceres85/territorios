@@ -1,0 +1,6 @@
+FROM php:7-fpm
+RUN sed -i 's/127.0.0.1:9000/0.0.0.0:9000/g' /usr/local/etc/php-fpm.d/www.conf \
+   && apt-get update && apt-get install -y libpq-dev \
+   && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+   && docker-php-ext-install pdo pgsql pdo_pgsql \
+   && docker-php-ext-enable pdo pgsql pdo_pgsql

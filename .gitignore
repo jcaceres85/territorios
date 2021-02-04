@@ -97,3 +97,7 @@ scripts/spcgeonode/_volume_*
 /geonode/development.db-journal
 
 /output.bin
+
+# Local compose files
+docker-compose.override.ip.yml
+docker-compose.override.domain.yml

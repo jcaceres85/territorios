@@ -920,7 +920,7 @@ if($is_public == 't' || ($is_public == 'f' && $session_expired == 'f'))
         
             var url = layer.getSource().getGetFeatureInfoUrl(
               coordinate, map.getView().getResolution(), map.getView().getProjection(),
-              {'INFO_FORMAT': 'text/javascript',
+              {'INFO_FORMAT': 'application/json',
                 'query_layers': layer.getSource().getParams()['layers'],
               });
 
@@ -929,11 +929,7 @@ if($is_public == 't' || ($is_public == 'f' && $session_expired == 'f'))
                 featureProjection:"EPSG:4326"
               });
 
-              $.ajax({
-                url: url,
-                dataType: 'jsonp',
-                jsonpCallback: 'parseResponse'
-              }).then(function(response)
+              $.getJSON(url, function(response)
               {
                 
                 var result = parser.readFeatures(response);
@@ -958,23 +954,14 @@ if($is_public == 't' || ($is_public == 'f' && $session_expired == 'f'))
                       var found = false;
                       var order = 0;
                       var label = '';
-                      $.each(dictionary, function(i, item) {
                         
-                        if(geoserverLayerId == item.layer && key == item.attribute)
-                        {
-                           label = item.label;
-                           display_order = item.display_order;
-                           found = true;
-                        }
-
-                      });
+                       
 
                       if(found)
                       {
                         rowLabels.push({label:label,value:result[0].get(key),display_order:display_order});
-                      }
-                        
-                      //else content+= '<tr><td>'+key+'</td>' +  '<td>'+result[0].get(key)+'</td></tr>';
+                      }  
+                      else content+= '<tr><td>'+key+'</td>' +  '<td>'+result[0].get(key)+'</td></tr>';
                     }
                   }
 

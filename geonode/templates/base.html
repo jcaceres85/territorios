@@ -417,6 +417,7 @@
                     {% if 'geonode.geoserver' in INSTALLED_APPS %}
                     <li><a href="{{ OGC_SERVER.default.WEB_UI_LOCATION }}">GeoServer</a></li>
                     {% endif %}
+                    <li><a href="/visor/admin.php?access_token={{request.session.access_token}}">Visores</a></li>
                     {% if USE_MONITORING %}
                     <li role="separator" class="divider"></li>
                     <li><a href="{% url "monitoring:index" %}">{% trans "Monitoring & Analytics" %}</a></li>

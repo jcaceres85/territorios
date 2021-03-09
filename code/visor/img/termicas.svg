@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 96 120"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg252"
+   sodipodi:docname="termicas.svg"
+   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)">
+  <metadata
+     id="metadata258">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs256" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     id="namedview254"
+     showgrid="false"
+     inkscape:zoom="7.1833333"
+     inkscape:cx="48"
+     inkscape:cy="87.842227"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg252" />
+  <title
+     id="title242">part 3</title>
+  <path
+     d="M48,88A31,31,0,0,0,72.12,37.54h0v0L48,8.2,24.44,36.88l0,0A31,31,0,0,0,48,88ZM30.56,42s0,0,0-.05l0,0L48,20.8,65.89,42.56v0A22.64,22.64,0,0,1,71,57,23,23,0,1,1,30.56,42Z"
+     id="path244" />
+  <path
+     d="M48,74.94A15.6,15.6,0,0,0,60.14,49.53h0v0L48,34.76,36.11,49.23l0,.06A15.58,15.58,0,0,0,48,74.94Zm5.92-20.38h0a7.49,7.49,0,0,1,1.69,4.76,7.61,7.61,0,0,1-15.22,0,7.47,7.47,0,0,1,1.84-4.94l0,0,0,0,5.72-7Z"
+     id="path246" />
+</svg>

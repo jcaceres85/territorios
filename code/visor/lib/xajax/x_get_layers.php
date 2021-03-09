@@ -1,8 +1,8 @@
 <?php
 
-require_once("../framework/ticket_manager.php");
-
 header("Content-Type: text/plain; charset=utf-8");
+
+require_once("../framework/ticket_manager.php");
 
 
 $depto = $_REQUEST["depto"];

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 24 30"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg194"
+   sodipodi:docname="biomasa.svg"
+   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)">
+  <metadata
+     id="metadata200">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs198" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     id="namedview196"
+     showgrid="false"
+     inkscape:zoom="27.5"
+     inkscape:cx="12"
+     inkscape:cy="16.454545"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg194" />
+  <title
+     id="title176">leave</title>
+  <g
+     id="g188">
+    <path
+       d="M10,20H5a1,1,0,0,1-1-1V14A13,13,0,0,1,17,1h5a1,1,0,0,1,1,1V7A13,13,0,0,1,10,20ZM6,18h4A11,11,0,0,0,21,7V3H17A11,11,0,0,0,6,14Z"
+       id="path178" />
+    <path
+       d="M2,23a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l15.5-15.5a1,1,0,1,1,1.42,1.42L2.71,22.71A1,1,0,0,1,2,23Z"
+       id="path180" />
+    <path
+       d="M11,14a1,1,0,0,1-1-1V8a1,1,0,0,1,2,0v5A1,1,0,0,1,11,14Z"
+       id="path182" />
+    <path
+       d="M17,12H13a1,1,0,0,1,0-2h4a1,1,0,0,1,0,2Z"
+       id="path184" />
+    <path
+       d="M12,16H9a1,1,0,0,1,0-2h3a1,1,0,0,1,0,2Z"
+       id="path186" />
+  </g>
+</svg>

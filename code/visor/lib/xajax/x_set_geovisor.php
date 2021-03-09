@@ -1,9 +1,6 @@
 <?php
 
-require_once("../framework/geovisor.php");
-
 header("Content-Type: text/plain; charset=UTF-8");
-
 
 $headers = apache_request_headers();
 
@@ -13,6 +10,7 @@ $data = json_decode($json);
 
 $action = $data->action;
 
+require_once("../framework/geovisor.php");
 
 if($action == 'edit')
 {

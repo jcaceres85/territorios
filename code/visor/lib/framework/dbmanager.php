@@ -29,7 +29,7 @@ class DBManager
 		return $r;
 	}
 
-	public static function execute_query($sql_query)
+	public static function execute_query($sql_query, $result_type = PGSQL_ASSOC)
 	{
 		self::connect();
 		
@@ -41,7 +41,7 @@ class DBManager
 		
 		for($i=0; $i<$num_rows; $i++)
 		{
-			$rows[]= pg_fetch_array($result, $i);
+			$rows[]= pg_fetch_array($result, $i, $result_type);
 		}
 		
 		//$pg_free_result($result);

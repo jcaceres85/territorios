@@ -1,0 +1,394 @@
+  body
+  {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .ctrl-geovisor
+  {
+    background-color: #994a7e !important;
+    color: #fff !important;
+  }
+
+
+  .ctrl-geovisor:active
+  {
+    background-color: #3e1b31 !important;
+    color: #fff !important;
+  }
+
+  .ui.button.toggle.active, .ui.buttons .button.toggle.active, .ui.toggle.buttons .active.button
+  {
+    background-color: #3e1b31 !important;
+  }
+
+  .ctrl-geovisor i
+  {
+    color: #fff !important;
+  }
+
+  .jsPanel .jsPanel-content
+  {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  }
+
+
+
+  #content
+  {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  #map
+  {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    width: 50%;
+    height: 100%;
+  }
+
+  #configure-panel
+  {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .qtree-selected
+  {
+    background-color: none !important;
+    border: 1px solid #333;
+  }
+
+  .jqtree-element
+  {
+    margin-bottom: 10px;
+  }
+
+
+  #layerTree
+  {
+    margin-top: 15px;
+  }
+
+
+
+  #panel_tools
+  {
+    position: absolute;
+    top: 7px;
+    left: 50px;
+    z-index: 101;
+  }
+
+  #panel_info_content
+  {
+    padding: 10px;
+  }
+
+  #logo
+  {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    z-index: 10;
+  }
+
+  #logo img
+  {
+    width: 100px;
+  }
+
+  #logo2
+  {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: 10;
+  }
+
+  #logo2 img
+  {
+    width: 100px;
+  }
+
+
+  #lblTabla
+  {
+    font-variant: small-caps;
+    font-size: 10pt;
+    margin-left: 5px;
+  }
+
+  #panel_tabla
+  {
+    position: absolute;
+    margin-bottom: -375px;
+    bottom: 0px;
+    left: 10px;
+    z-index: 100;
+    width: 500px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #fbfbfb;
+    padding: 5px;
+  }
+
+
+  #toggle_panel_tabla
+  {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+
+
+
+  .ol-popup-context-menu {
+    position: absolute;
+    background-color: #333;
+    color: #333;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    margin-left: -2px;
+    min-width: 150px;
+    font-size: 10pt;
+  }
+  .ol-popup-context-menu:after, .ol-popup-context-menu:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .ol-popup-context-menu:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+  }
+  .ol-popup-context-menu:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+  }
+  .ol-popup-context-menu-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+  }
+  .ol-popup-context-menu-closer:after {
+    content: "✖";
+  }
+
+  .ol-scale-line
+  {
+    position: absolute;
+    right: auto;
+    left: 10px;
+  }
+
+  #context_menu
+  {
+  	background-color: #fbfbfb;
+    color: #333;
+    width: 250px;
+    z-index: 7;
+  }
+
+
+.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ui.modal,
+.ui.active.modal {
+  margin: 0 auto!important;
+  top: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+}
+
+
+.ui.table {
+    font-size: 9pt !important;
+}
+
+.tabla-info
+{
+  margin: 10px;
+  font-size: 7pt;
+}
+
+.tabla-info td
+{
+  padding: 5px;
+}
+
+
+.dataTables_wrapper 
+{ 
+  font-size: 12px; 
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+
+.map:-moz-full-screen {
+  height: 100%;
+}
+.map:-webkit-full-screen {
+  height: 100%;
+}
+.map:-ms-fullscreen {
+  height: 100%;
+}
+.map:fullscreen {
+  height: 100%;
+}
+/* position the rotate control lower than usual */
+.ol-rotate {
+  top: 3em;
+}
+
+.ol-zoom .ol-zoom-in
+{
+  background-color: #994a7e;
+}
+
+.ol-zoom .ol-zoom-out
+{
+  background-color: #994a7e;
+}
+
+.ol-full-screen
+{
+ background-color: #994a7e; 
+}
+
+.ol-control button
+{
+ background-color: #994a7e;  
+}
+
+.jsPanel-theme-primary
+{
+ background-color: #994a7e !important;   
+}
+
+.ol-overviewmap {
+    left: 0.5em;
+    bottom: 2.5em !important;
+}
+
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+.tooltip-static {
+  background-color: #ffcc33;
+  color: black;
+  border: 1px solid white;
+}
+.tooltip-measure:before,
+.tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+.tooltip-static:before {
+  border-top-color: #ffcc33;
+}    
+
+#typeMeasure
+{
+  position: absolute;
+  top: 45px;
+  left: 390px;
+  border-radius: 5px;
+  background-color: #984a7e;
+  color: #fff;
+  z-index: 50;
+}
+
+#panel_georef
+{
+    position: absolute;
+    bottom: 9px;
+    left: 10px;
+    width: 266px;
+    height: 24px;
+    border-radius: 5px;
+    background-color: rgba(153,74,126,.3);
+    z-index: 500;
+}
+
+#proj {
+    position: absolute;
+    left: 10px;
+    bottom: 2px;
+    font-size: 8pt;
+    color: white;
+}
+
+#zoom {
+    position: absolute;
+    left: 90px;
+    bottom: 2px;
+    font-size: 8pt;
+    color: white;
+}
+
+#mouse-position {
+    position: absolute;
+    left: 160px;
+    bottom: 2px;
+    font-size: 8pt;
+    color: white;
+}
+
+.ol-scale-line
+{
+  background-color: rgba(153,74,126,.3) !important;
+  left: 286px !important;
+}

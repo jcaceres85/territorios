@@ -7,7 +7,7 @@ class DBManagerGeodata
 	
 	static function connect()
 	{
-		self::$db_conn = pg_connect("host=localhost port=5432 dbname=territoriosenriesgo user=postgres password=123");
+		self::$db_conn = pg_connect("host=db port=5432 dbname=geonode_data user=geonode password=geonode");
 
 		//pg_set_client_encoding(self::$db_conn, "latin1");
 		
@@ -29,7 +29,7 @@ class DBManagerGeodata
 		return $r;
 	}
 
-	public static function execute_query($sql_query)
+	public static function execute_query($sql_query, $result_type = PGSQL_ASSOC)
 	{
 		self::connect();
 		
@@ -41,7 +41,7 @@ class DBManagerGeodata
 		
 		for($i=0; $i<$num_rows; $i++)
 		{
-			$rows[]= pg_fetch_array($result, $i);
+			$rows[]= pg_fetch_array($result, $i, $result_type);
 		}
 		
 		//$pg_free_result($result);

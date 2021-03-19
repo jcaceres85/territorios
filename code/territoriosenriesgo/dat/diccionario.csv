@@ -1,0 +1,506 @@
+capa,campo,etiqueta
+gmu2010,GMU2010,Grado de marginación
+agebs_2010,GRAPROES,Grado promedio de escolaridad
+agebs_2011,POBTOT,Población total (habitantes)
+agebs_2012,PCON_LIM,Número de personas con alguna discapacidad
+agebs_2013,PY3M_HLI,Número de personas que habla alguna lengua indígena
+agebs_2014,PDER_SS,Número de personas con acceso a servicios de salud
+agebs_2015,POBTOT_HA,Densidad poblacional (hab/ha)
+agebs_2016,PEA,PEA
+agebs_2017,RZN_DEP_EC,Grado de dependencia económica
+agebs_2018,RZN_DEP__1,Grado de dependencia económica
+usaer,CVE_ESC,Clave escolar
+usaer,NOMBRE,Nombre
+usaer,NUM,Número
+usaer,DOMICILIO,Domicilio
+usaer,COL,Colonia
+cam,CVE_ESC,Clave escolar
+cam,NOMBRE,Nombre
+cam,DOMICILIO,Domicilio
+cam,COL,Colonia
+cam,AULA_EXIST,Aulas
+preescolar,CVE_ESC,Clave escolar
+preescolar,NOMBRE,Nombre
+preescolar,DOMICILIO,Domicilio
+preescolar,COL,Colonia
+preescolar,SOST,Sostenimiento
+preescolar,UBS,Aulas
+primaria,CVE_ESC,Clave escolar
+primaria,NOMBRE,Nombre
+primaria,DOMICILIO,Domicilio
+primaria,COL,Colonia
+primaria,SOST,Sostenimiento
+primaria,UBS,Aulas
+secundaria,CVE_ESC,Clave escolar
+secundaria,NOMBRE,Nombre
+secundaria,DOMICILIO,Domicilio
+secundaria,COL,Colonia
+secundaria,SOST,Sostenimiento
+secundaria,UBS,Aulas
+cap_trab,CVE_ESC,Clave escolar
+cap_trab,NOMBRE,Nombre
+cap_trab,DOMICILIO,Domicilio
+cap_trab,COL,Colonia
+cap_trab,AULA,Aulas
+cap_trab,TALLER,Talleres
+bach_abierto,CVE_ESC,Clave escolar
+bach_abierto,NOMBRE,Nombre
+bach_abierto,MODAL,Modalidad
+bach_abierto,DOMICILIO,Domicilio
+bach_abierto,COL,Colonia
+bach_abierto,SOST,Sostenimiento
+bach_abierto,UBS,Aulas
+bach_gral_tec,CVE_ESC,Clave escolar
+bach_gral_tec,NOMBRE,Nombre
+bach_gral_tec,MODAL,Modalidad
+bach_gral_tec,DOMICILIO,Domicilio
+bach_gral_tec,COL,Colonia
+bach_gral_tec,SOST,Sostenimiento
+bach_gral_tec,UBS,Aulas
+universidad,CVE_INST,Clave de la institución
+universidad,INST,Institución
+universidad,CVE_ESC,Clave escolar
+universidad,NOMBRE,Nombre de la escuela
+universidad,DOMICILIO,Domicilio
+universidad,COL,Colonia
+universidad,SOST,Sostenimiento
+universidad,UBS,Aulas
+cultura,TIPO,Tipo
+cultura,NOMBRE,Nombre
+cultura,DIRECCION,Dirección
+cultura,COL,Colonia
+cultura,UBS,Unidad básica de servicio (UBS)
+cultura,DESC_UBS,Tipo de UBS
+salud,NOMBRE,Nombre
+salud,TIPO,Tipo
+salud,DIRECCION,Dirección
+salud,COL,Colonia
+salud,UBS,Unidad básica de servicio (UBS)
+salud,DESC_UBS,Tipo de UBS
+asist_social,NOMBRE,Nombre
+asist_social,INST,Sostenimiento
+asist_social,TIPO,Tipo
+asist_social,DIRECCION,Dirección
+asist_social,COL,Colonia
+asist_social,UBS,Unidad básica de servicio (UBS)
+asist_social,DESC_UBS,Tipo de UBS
+farmacia,NOMBRE,Nombre
+farmacia,TIPO,Tipo
+farmacia,DIRECCION,Dirección
+farmacia,COL,Colonia
+farmacia,INST,Sostenimiento
+tda_ctro_com,NOMBRE,Nombre
+tda_ctro_com,TIPO,Tipo
+tda_ctro_com,DIRECCION,Dirección
+tda_ctro_com,COL,Colonia
+tda_ctro_com,INST,Sostenimiento
+tianguis,NOMBRE,Nombre
+tianguis,TIPO,Tipo
+tianguis,DIRECCION,Dirección
+tianguis,COL,Colonia
+tianguis,INST,Sostenimiento
+abarrote_tda_autoserv,nom_estab,Nombre
+merc_sobreruedas,COLONIA,Colonia
+merc_sobreruedas,UBICACION,Ubicación
+merc_sobreruedas,OFERENTES,Oferentes
+merc_sobreruedas,AGRUPACION,Agrupación
+abasto,NOMBRE,Nombre
+abasto,TIPO,Tipo
+abasto,DIRECCION,Dirección
+abasto,COL,Colonia
+abasto,INST,Sostenimiento
+comunicacion,TIPO,Tipo
+comunicacion,NOMBRE,Nombre
+comunicacion,DIRECCION,Dirección
+comunicacion,COLONIA,Colonia
+comunicacion,UBS,Unidad básica de servicio (UBS)
+comunicacion,DESC_UBS,Tipo de UBS
+transporte,TIPO,Tipo
+transporte,NOMBRE,Nombre
+transporte,DIRECCION,Dirección
+transporte,COLONIA,Colonia
+rec_espect,TIPO,Tipo
+rec_espect,NOMBRE,Nombre
+rec_espect,DIRECCION,Dirección
+rec_espect,COLONIA,Colonia
+rec_espect,UBS,Unidad básica de servicio (UBS)
+rec_espect,DESC_UBS,Tipo de UBS
+area_verde,TIPO,Tipo
+area_verde,NOMBRE,Nombre
+area_verde,DIRECCION,Dirección
+area_verde,COLONIA,Colonia
+area_verde,UBS,Unidad básica de servicio (UBS)
+area_verde,DESC_UBS,Tipo de UBS
+deporte,TIPO,Tipo
+deporte,NOMBRE,Nombre
+deporte,DIRECCION,Dirección
+deporte,COLONIA,Colonia
+deporte,UBS,Unidad básica de servicio (UBS)
+deporte,DESC_UBS,Tipo de UBS
+admon_pub,raz_social,Razón Social
+admon_pub,NOMBRE,Nombre
+admon_pub,DIRECCION,Dirección
+admon_pub,COLONIA,Colonia
+admon_pub,TIPO,Tipo
+serv_urb,NOMBRE,Nombre
+serv_urb,DIRECCION,Dirección
+serv_urb,COLONIA,Colonia
+serv_urb,TIPO,Tipo
+serv_urb,UBS,Unidad básica de servicio (UBS)
+serv_urb,DESCRIP_UB,Tipo de UBS
+hidrantes,ESTADO,Estado
+planta_pot,PLANTA_POT,Número de planta
+planta_pot,CAP_LS,Capacidad (LPS)
+zonas_cespm,ID,Número de zona
+red_ppal_ap,MATERIAL,Material
+red_ppal_ap,CONSTRUCCI,Año de construcción
+red_ppal_ap,VIDAUTIL,Vida útil
+red_ppal_ap,DIAM_INCH,Diámetro
+red_ppal_ap,LONGITUD,Longitud (m)
+cob_potable,,
+ptar_cespm,PLANTA,Planta
+ptar_cespm,DIRECCION,Dirección
+ptar_cespm,LAG_AIRADA,Laguna aireada
+ptar_cespm,LAG_SEDIM,Laguna de sedimentación
+ptar_cespm,LAG_FACULT,Laguna facultativa
+ptar_cespm,LAG_MAD,Laguna de maduración
+ptar_cespm,CAP_LPS,Capacidad (LPS)
+ptar_lodos_act,UBICACION,Planta
+ptar_lodos_act,CAP_LPS,Capacidad (LPS)
+sist_bomb,TIPO,Tipo
+sist_bomb,NOMBRE,Nombre
+sist_bomb,DIRECCION,Dirección
+sist_bomb,EQUIPOS,Equipos
+sist_bomb,BOMBAS,Tipo de bombas
+sist_bomb,CAP_HP,Capacidad (HP)
+sist_bomb,GEN_ELECT,Generador eléctrico
+red_ppal_as,MATERIAL,Material
+red_ppal_as,CONSTRUCCI,Año de construcción
+red_ppal_as,VIDAUTIL,Vida útil
+red_ppal_as,DIAMETRO,Diámetro
+red_ppal_as,CONDUCCION,Conducción
+red_ppal_as,LONGITUD,Longitud (m)
+red_ppal_as,ANO_VIDA,Años de vida
+red_ppal_as,REST_VIDA,Vida restante (años)
+cob_sanitario,,
+carc_pluvial,NOMBRE,Nombre
+carc_pluvial,DIRECCION,Dirección
+carc_pluvial,EQUIPOS,Equipos
+carc_pluvial,BOMBAS,Tipo de bombas
+carc_pluvial,CAP_HP,Capacidad (HP)
+carc_pluvial,GEN_ELECT,Generador eléctrico
+red_ppal_pluvial,MATERIAL,Material
+red_ppal_pluvial,DIAMETRO,Diámetro
+red_ppal_pluvial,CONSTRUCCI,Año de construcción
+red_ppal_pluvial,VIDAUTIL,Años de vida
+red_ppal_pluvial,LONGITUD,Longitud (m)
+dren_cubierto,NOMBRE,Nombre
+dren_abierto,TIPO,Tipo
+dren_abierto,NOMBRE,Nombre
+dren_abierto,MODULO,Módulo de riego
+canal_ppal,SUBTIPO,Subtipo
+canal_ppal,NOMBRE,Nombre
+canal_ppal,MODULO,Módulo de riego
+canal_lat,SUBTIPO,Subtipo
+canal_lat,NOMBRE,Nombre
+canal_lat,MODULO,Módulo de riego
+subestacion_elect,Nombre,Nmobre
+subestacion_elect,Cap_MW,Capacidad (MW)
+subestacion_elect,Direccion,Dirección
+linea_elect_at,Name,Nombre
+cob_alum_pub,alum,Alumbrado público
+red_gas_nat,MATERIAL,Material
+red_gas_nat,DIAM_PULG,Longitud (pulgadas)
+red_gas_nat,LONG_KM,Longitud (km)
+cob_gas_nat,SUP_HA,Superficie (ha)
+usuario_ind_gas,NOMBRE,Nombre
+usuario_resid_gas,COLONIAS,Colonia o fraccionamiento
+usuario_resid_gas,CVE_COL,Clave de colonia o fraccionamiento
+unidad_rem_linea,CVE_CAT,Clave catastral
+sitio_wifi,NOMBRE_VIA,Dirección
+sitio_wifi,NUM_EXT,Número
+sitio_wifi,CVE_CENTRO,Clave del centro
+sitio_wifi,NOM_CENTRO,Nombre del centro
+sitio_wifi,DEPENDENCI,Dependencia encargada
+sitio_wifi,NOMENCLATU,Tipo de centro
+antena_telecom,,
+cab_telefono,,
+nodo_vial,JERARQUIA,Jerarquía
+nodo_vial,ESTATUS,Estatus
+evial_actual,NOMBRE,Nombre de la vialidad
+evial_actual,Acotamient,Acotamiento
+evial_actual,JERARQUIA,Jerarquía
+evial_actual,CARRILES,Carriles
+evial_actual,ADMINISTRA,Administración
+evial_actual,CLASIFICA,Clasificación
+evial_actual,VELOCIDAD,Límite de velocidad
+evial_actual,SECCION,Sección
+edo_fis_evial_ppal,ESTADO,Estado
+edo_fis_evial_ppal,NOMBRE,Nombre
+edo_fis_evial_ppal,JERARQUIA,Jerarquía
+edo_fis_evial_ppal,LONG_KM,Longitud (km)
+cob_pavimento,DIRECCION,Vialidad
+cob_pavimento,PAVIMENTO,Cobertura de pavimento
+cob_pavimento,LONG_KM,Longitud (km)
+par_vial,long_km,Longitud (km)
+par_vial,sentido,Sentido
+par_vial,NOMV,Nombre de la vialidad
+par_vial,JERQ,Jerarquía
+par_vial,ESTADO,Estado
+cruc_semaforo,CENTRALIZA,Centralizado
+cruc_semaforo,CAMARA,Cámara
+cruc_semaforo,VIDEO_DETE,Videodetección
+alto_disco,JERARQUIA,Jerarquía
+accident_vial,ICOUNT,Número de accidentes
+zona_trans_rest,COLONIAS,Colonia o fraccionamiento
+zona_trans_rest,CVE_COL,Clave de la colonia o fraccionamiento
+zona_trans_rest,SUP_HA,Superficie (ha)
+ruta_ciclovia,NOM_VIAL,Nombre de la vialidad
+ruta_ciclovia,LONG_KM,Longutud (km)
+ruta_ciclovia,estado,Estado
+ruta_ciclovia,Ciclo_Etap,Etapa
+ruta_ciclovia,ACOTA,Acotamiento
+ruta_ciclovia,CARRIL,Carriles
+ruta_ciclovia,alum,Alumbrado público
+ruta_ciclovia,ESTACIO,Estacionamiento
+ruta_ciclovia,SECC_VIAL,Sección vial
+ruta_ciclovia,PAV,Cobertura de pavimentación
+ruta_autobus,CVE_RUTA,Clave de la ruta
+ruta_autobus,CONSESION,Consesión
+ruta_autobus,ALIAS,Alias
+ruta_autobus,P_VEHIC_OP,Parque vehicular operando
+ruta_autobus,FREC_MIN,Frecuencia (min)
+ruta_autobus,UBICACION,Ubicación
+ruta_autobus,PROM_REC_M,Tiempo promedio de recorrido (min)
+ruta_autobus,RUTA,Ruta
+cob_autobus,,
+base_radiotaxi,BASE,Base
+base_radiotaxi,NOMBRE,Nombre
+base_radiotaxi,DOMICILIO,Domicilio
+sitio_taxi,SITIO,Sitio
+sitio_taxi,NOMBRE,Nombre
+sitio_taxi,DOMICILIO,Domicilio
+ruta_taxi,RUTA,Ruta
+ruta_taxi,FRANJA,Franja
+ruta_taxi,NOMBRE,Nombre
+ruta_taxi,TRAYECTO,Trayecto
+cob_taxi,,
+crec_hist,PERIODO,Periodo
+uso_suelo_actual,USO_ACTUAL,Uso de suelo actual
+uso_suelo_actual,h,Habitacional
+uso_suelo_actual,cs,Comercio y servicio
+uso_suelo_actual,i,Industria
+uso_suelo_actual,m,"Mixto (habitacional, comercio y servicios)"
+uso_suelo_actual,mci,"Mixto (industria, comercio y servicios)"
+uso_suelo_actual,ia,Infraestructura
+uso_suelo_actual,as,Almacenamiento y servicios
+uso_suelo_actual,e,Equipamiento
+uso_suelo_actual,cu,Corredor urbano
+uso_suelo_actual,bu,Baldío urbanizado
+uso_suelo_actual,bnu,Baldío no urbanizado
+uso_suelo_actual,as,Agrícola
+uso_suelo_actual,aev,Equipamiento (área verde)
+parque_zona_ind,TIPO,Tipo
+parque_zona_ind,NOMBRE,Nombre
+parque_zona_ind,SUP_HA,Superficie (ha)
+baldios,ClaveCatas,Clave catastral
+baldios,Superficie,Superficie (m²)
+tenen_tierra,ClaveCatas,Clave catastral
+tenen_tierra,Prop_2019,Tenencia
+tenen_tierra,Shape_Area,Superficie (m²)
+valor_cat_corr_com,Val2019,Valor catastral
+valor_cat_corr_com,Nom,Nombre
+valor_cat_corr_urb,Val2019,Valor catastral
+valor_cat_corr_urb,Nom,Nombre
+valor_cat_hab,Val2019,Valor catastral
+valor_cat_hab,Colonia,Clave de la colonia
+valor_cat_hab,Desc_,Nombre de la colonia
+valor_cat_industria,Val2019,Valor catastral
+valor_cat_industria,Colonia,Clave de la colonia
+valor_cat_industria,Desc_,Nombre de la colonia
+valor_plza_ctro_com,Val2019,Valor catastral
+valor_plza_ctro_com,Colonia,Clave de la colonia
+valor_plza_ctro_com,Nom,Nombre
+valor_cat_reserva,Val2019,Valor catastral
+valor_cat_rustico,Val2019,Valor catastral
+ctro_com_ppal,NOMBRE,Nombre
+oferta_tur_ppal,nom_estab,Nombre del establecimiento
+oferta_tur_ppal,nomb_asent,Colonia o fraccionamiento
+corr_turistico,NOMBRE,Nombre del corredor (vialidad)
+zona_turistica,COLONIA,Colonia o fraccionamiento
+crec_hist_viv,PERIODO,Periodo
+agebs_2010,VIV_TOT,Viviendas totales
+agebs_2011,VIV_PARDES,Viviendas particulares deshabitadas
+agebs_2012,VPH_PISODT,Viviendas habitadas con piso diferente de tierra
+agebs_2013,VPH_C_SERV,Viviendas habitadas con servicios básicos
+tipo_viv,TIPO,Tipo de vivienda
+tipo_viv,SUP_HA,Superficie (ha)
+reservas_hab,PLAZO,Plazo
+reservas_hab,Hectares,Superficie (ha)
+sist_topoformas,NOMBRE,Sistema
+provincia_fisio,NOMBRE,Provincia
+subprov_fisio,NOMBRE,Subprovincia
+mde_mpio_mxl,,Elevación (msnm)
+zona_inund,,
+geologia,TIPO_LEY,Tipo de roca
+edafologia,NOM_SUE1,Tipo de suelo
+canal_riego,TIPO,Tipo
+canal_riego,SUBTIPO,Subtipo
+canal_riego,NOMBRE,Nombre
+canal_riego,CARGO,Cargo
+canal_riego,MODULO,Módulo
+cauce_rio_colorado,,
+cuenca_hidro,REGION,Región
+cuenca_hidro,CUENCA,Cuenca
+cuerpo_agua_inter,
+dren_134,,
+dren_ppal,NOMBRE,Nombre
+dren_ppal,MODULO,Módulo
+dren_ramal_subramal,TIPO,Tipo
+dren_ramal_subramal,NOMBRE,Nombre
+dren_ramal_subramal,MODULO,Módulo
+dv_dren134,,
+modulo_riego,DR014_AREA,Área (m²)
+modulo_riego,DR014MODU,Número de módulo
+modulo_riego,TOTAL_USER,Usuarios
+modulo_riego,TOTAL_VOL,Volumen anual (m³)
+modulo_riego,TOTAL_POZS,Pozos
+arroyo_ppal,TIPO,Tipo
+arroyo_ppal,NOMBRE,Nombre
+acuiferos,NOM_REGION,Nombre de la región
+acuiferos,CLV_ACUI,Clave del acuífero
+acuiferos,NOM_ACUI,Nombre del acuífero
+acuiferos,AREA_KM2,Superficie (km²)
+acuiferos,DESC_DISPO,Disponibilidad
+acuiferos,SOBREEXP,Sobreexplotación
+acuiferos,FECHA_DOFD,Fecha de publicación (DOF)
+unidad_geohidro,UNID_GEOHI,Unidad geohidrológica
+unidad_geohidro,AREA,Superficie (m²)
+tipo_clima,CLIMA_TIPO,Tipo de clima
+tipo_clima,DES_TEM,Clima
+tipo_clima,DEC_PREC,Precipitación
+temp_med_anual,CLAVESTEM,Temperatura media
+temp_max_abs,TA_RANGO,Temperatura máxima absoluta (°C)
+temp_max_prom,TA_RANGO,Temperatura máxima promedio (°C)
+temp_min_abs,TA_RANGO,Temperatura mínima absoluta (°C)
+temp_min_prom,TA_RANGO,Temperatura mínima promedio (°C)
+temp_min_extrema,,
+uso_suelo,CVE_G,Tipología
+uso_suelo,RAP,Agrícola
+uso_suelo,ACUI,Acuícola
+uso_suelo,PC,Pastizal cultivado
+uso_suelo,IEFF,"Información ecológica, florística y fisionómica"
+uso_suelo,H2O,Cuerpo de agua
+vegetacion,descripcio,Tipología
+area_nat_prot,NOMBRE,Nombre
+area_nat_prot,CAT_DECRET,Categoría de decreto
+area_nat_prot,CAT_MANEJO,Categoría de manejo
+area_nat_prot,ESTADOS,Estados
+area_nat_prot,MUNICIPIOS,Municipios
+area_nat_prot,REGION,Región
+area_nat_prot,SUPERFICIE,Superficie (m²)
+area_nat_prot,ULT_DOF,Última publicación (DOF)
+sitio_ramsar,RAMSAR,Ubicación del sitio
+sitio_ramsar,FECHA_INGR,Fecha de ingreso
+sitio_ramsar,MUNICIPIOS,Municipios
+sitio_ramsar,NUM_RAMSAR,Número de registro RAMSAR
+area_conserv,,
+humedal,DESCRIP,Región
+humedal,HECTAREA,Superficie (ha)
+humedal,SUELO,Suelo
+humedal,VEGETACION,Vegetación
+humedal,USO,Uso del suelo
+humedal,DRENAJE,Drenaje
+humedal,CUERPO_H2O,Cuerpo de agua
+humedal,CORRIENTE,Corriente
+humedal,ESTADO,Estado
+humedal,NOMHUMEDAL,Nombre
+humedal,REGION_HID,Región hidrográfica
+humedal,NOM_CUENCA,Cuenca
+asist_social,NOMBRE,Nombre
+asist_social,TIPO,Tipo
+asist_social,LOC,Localidad
+bomberos,NOMBRE,Nombre
+bomberos,DIRECCION,Dirección
+bomberos,LOCALIDAD,Localidad
+est_serv,RAZON_SOC,Nombre
+est_serv,UBICACION,Dirección
+est_serv,SUBTIPO,Tipo
+hospital,NOMBRE,Nombre
+hospital,TIPO,Tipo
+hospital,INT,Institución
+preescolar1,MODEL,Modalidad
+preescolar_1,LOC,Localidad
+preescolar_1,NOMBRE,Nombre
+primaria_1,NOMBRE,Nombre
+primaria_1,MODAL,Modalidad
+primaria_1,LOC,Localidad
+secundaria_1,NOMBRE,Nombre
+secundaria_1,MODAL,Modalidad
+secundaria_1,LOC,Localidad
+bach_abierto,NOMBRE,Nombre
+bach_abierto,LOC,Localidad
+bach_gral,NOMBRE,Nombre
+bach_gral,MODAL,Modalidad
+bach_gral,LOC,Localidad
+bach_tec_prof,NOMBRE,Nombre
+bach_tec_prof,LOC,Localidad
+reserv_cdmxl,,
+volcan,,
+fallas_gral,,
+falla_Suarez2008,Name,Nombre
+estruct_dan_falla_cerroprieto,,
+sitio_subsidencia,,
+agrieta_fi79_80,,
+ctro_disper,,
+fallas_artSuarez,Layer,Nombre
+sismo_3_3_9,Name,Intensidad
+sismo1892_7_2,,
+sismo1934_6_5,,
+sismo_hist_m_7,Name,Intensidad
+sismo_hist_m_7,DATE,Año
+sismo_6_6_9,Name,Intensidad
+sismo_6_6_9,DATE,Año
+sismo_5_5_9,Name,Intensidad
+sismo_4_4_9,Name,Intensidad
+tsunamis,AREA_RECEP,Área de recepción
+pendientes_mpio_mxl,VALUE,Rangos (°)
+suscep_ladera,Value,Grado
+sus_inest_laderas,Value,Grado
+volcan_arena_centro1940,,
+volcan_arena_imperial1979,,
+volcan_arena_victoria1980,,
+zona_licue_agrieta,,
+canada,,
+agrietamiento,Field1,Ubicación
+agrietamiento,Field3,Elemento dañado
+est_clima,ALT_m,Altura de la estación (m)
+est_clima,NO_EST,Número de estación
+est_clima,NOM_EST,Nombre de la estación
+prob_sequia,,
+ind_heladas,NOM_MUN,Nombre de municipio
+ind_heladas,POB2010,Población
+ind_heladas,ESTADO_1,Estado
+ind_heladas,PELIGRO_PO,Grado (índice)
+isoterma_int,Intensidad,Intensidad
+isoterma_int,Contour,Temperatura (°C)
+temp_min_estrema,Value,Temperatura (°C)
+dias_granizo,DIAS_GRANI,Días con granizo
+int_granizo,OBSERV,Cantidad de granziadas
+int_granizo,INF_COMPL,Intensidad
+prob_alt_nevada,RANGO,Rango de elevación (msnm)
+prob_alt_nevada,PROBABILID,Probabilidad de nevada
+tray_ciclon,NOMBRE,Nombre
+tray_ciclon,CLASIF,Clasificación
+tray_ciclon,FECHA,Fecha
+ciclon_costa,Name,Cantidad de impactos
+afect_loc_ciclon,Name,Nombre de la localidad
+afect_loc_ciclon,PopupInfo,Número de ciclones impactados
+pred_afect_dren134,CLAVECATAS,Clave catastral
+pred_afect_dren134,SUPERFICIE,Superficie (m²)
+pred_afect_dren134,GIRO,Giro
+pred_afect_dren134,RIESGO_1,Nivel de riesgo
+inund_1982,Value,Profundidad (m)
+inund_1983,Value,Profundidad (m)
+inund_1995,Value,Profundidad (m)
+inund_2008,Value,Profundidad (m)

@@ -46,7 +46,7 @@ services:
       - ./scripts/docker/env/${SET_DOCKER_ENV}/geoserver.env
 
   php:
-    image: php:7-fpm
+    build: ./code/php
     restart: unless-stopped
     links:
       - db
@@ -118,6 +118,7 @@ services:
     volumes:
       - statics:/mnt/volumes/statics
       - ./code:/code
+      - ./code/nginx/nginx.conf:/etc/nginx/nginx.conf
     links:
       - php
 

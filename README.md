@@ -2,7 +2,7 @@
 ![GeoNode](https://raw.githubusercontent.com/GeoNode/documentation/master/about/img/geonode-logo_for_readme.gif "GeoNode")
 <!-- ![OSGeo Project](https://www.osgeo.cn/qgis/_static/images/osgeoproject.png) -->
 
-# [Geoportal Territorios en Riesgo](https://territoriosenriesgo.unah.edu.hn//)
+# [Geoportal Territorios en Riesgo](https://territoriosenriesgo.unah.edu.hn)
 
 Table of Contents
 =================
@@ -49,7 +49,7 @@ of maps and geographic information related to the mining cadastre and
 renewable energy; for the identification and spatial location of tax and
 conflict issues in Honduras.
 
-- Download the Study: https://territoriosenriesgo.unah.edu.hn/documents/98/download
+# [Download the Study](https://territoriosenriesgo.unah.edu.hn/documents/98/download)
 
 
 Most useful links

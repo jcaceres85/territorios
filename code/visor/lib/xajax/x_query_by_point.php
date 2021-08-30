@@ -1,8 +1,11 @@
 <?php
 
+header("Content-Type: text/plain; charset=utf-8");
+
+
 require_once("../framework/query.php");
 
-header("Content-Type: text/plain; charset=utf-8");
+//header("Content-Type: text/plain; charset=utf-8");
 
 
 $layer = $_REQUEST["layer"];

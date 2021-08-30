@@ -6,12 +6,33 @@ require_once("../lib/framework/search.php");
 $geovisor_id = $_REQUEST["geovisor_id"];
 $access_token = $_REQUEST["access_token"];
 
+$g_res = Geovisor::get($geovisor_id);
+
+
+$legend_font = 'SanSerif.bold';
+
+if(count($g_res)>0)
+{
+  $geovisor = $g_res[0];
+
+  if($geovisor['legend_font'] != null || $geovisor['legend_font'] != '')
+    $GLOBALS['legend_font'] = $geovisor['legend_font'];
+
+  if($geovisor['legend_font_size'] != null || $geovisor['legend_font_size'] != '')
+    $GLOBALS['legend_font_size'] = round($geovisor['legend_font_size']);
+}
+else
+{
+  $GLOBALS['legend_font'] = $legend_font;  
+}
 
 
 $all_layers = array();
 
+$searches = Search::get_search_by_geovisor_id($geovisor_id);
 
-function layerTree($geovisor_id, $parent_category_id)
+
+function layerTreeCtrl($geovisor_id, $parent_category_id)
 {
 
     $categories = Geovisor::get_child_categories($geovisor_id, $parent_category_id);
@@ -41,9 +62,9 @@ function layerTree($geovisor_id, $parent_category_id)
         echo 'collapse in';
       echo '" id="grp_cat_'.$geovisor_id.'_'.$category_id.'">';
 
-      layerTree($geovisor_id, $category_id);
+      layerTreeCtrl($geovisor_id, $category_id);
       
-      printLayer($geovisor_id, $category_id);
+      printLayerCtrl($geovisor_id, $category_id);
         
 
       echo '</div>';
@@ -52,7 +73,7 @@ function layerTree($geovisor_id, $parent_category_id)
     }
 }
 
-function printLayer($geovisor_id, $category_id)
+function printLayerCtrl($geovisor_id, $category_id)
 {
   $layers = Geovisor::get_layers_by_geovisor_category($geovisor_id, $category_id);
 
@@ -70,6 +91,7 @@ function printLayer($geovisor_id, $category_id)
     $ordr = $lyr["ordr"];
     $active = $lyr["active"];
     $queryable = $lyr["queryable"];
+    $transparency = $lyr["transparency"];
     $zindex = $lyr["zindex"];
     $geoserver_label_style_id = $lyr["geoserver_label_style_id"];
     $label_active = $lyr["label_active"];
@@ -96,10 +118,10 @@ function printLayer($geovisor_id, $category_id)
 
       if($geoserver_label_style_id != null && $geoserver_label_style_id != '')
       { 
-        echo '<span>Etiquetas</span> <span onclick="activarCapa(\''.$geoserver_label_style_id.'\');$(this).children().toggleClass(\'on\');$(this).children().toggleClass(\'off\');"><i class="toggle '.($label_active=='t'?'on':'off').' icon"></i></span><i class="font icon"></i>';
+        echo '<span>Etiquetas</span> <span onclick="activarCapa(\''.$geoserver_label_style_id.'\');$(this).children().toggleClass(\'on\');$(this).children().toggleClass(\'off\');"><i class="activate-layer-label toggle '.($active == 't' && $label_active == 't'?'on':'off').' icon"></i></span><i class="fas fa-ad"></i>';
       }
 
-      echo '<div><span><i class="eye icon"></i> Transparencia</span></div>';
+      echo '<div><span><i class="eye icon"></i> Transparencia:</span> <span class="transparency-value">'.($transparency).'%</span></div>';
       echo '<div id="slider_'.$lyr_id_sel.'" class="slider_transparency"></div>';
       echo '<div><span><i class="sort amount up icon"></i> Índice-Z: </span> <span id="spn_lyr_zindex_'.$lyr_id_sel.'">'.$zindex.'</span>  <span class="spin-zindex" onclick="zIndexUp(\''.$lyr_id_sel.'\')"><i class="arrow up icon"></i></span><span class="spin-zindex" onclick="zIndexDown(\''.$lyr_id_sel.'\')"><i class="arrow down icon"></i></span></div>';
     echo '</div>';
@@ -116,7 +138,7 @@ function printLayer($geovisor_id, $category_id)
       if($geoserver_style_id != null AND $geoserver_style_id != '')
         echo '&STYLE='.$geoserver_style_id;
       
-      echo '&LEGEND_OPTIONS=fontName:SanSerif.bold;bgColor:0xFFFFFF;fontSize:9;fontColor:0x333333;forceLabels:on;dpi:100&access_token='.$GLOBALS['access_token'].'"/>';
+      echo '&LEGEND_OPTIONS=fontName:'.$GLOBALS['legend_font'].';bgColor:0xFFFFFF;fontSize:'.$GLOBALS['legend_font_size'].';fontColor:0x333333;forceLabels:on;dpi:100&access_token='.$GLOBALS['access_token'].'"/>';
     
     echo '</div>'; //grp-legend-lyr
 
@@ -128,10 +150,10 @@ function printLayer($geovisor_id, $category_id)
 
 
 
-function searchForms($geovisor_id)
+function searchForms($searches)
 {
 
-    $searches = Search::get_search_by_geovisor_id($geovisor_id);
+    
 
     for($i=0; $i<count($searches); $i++)
     {
@@ -156,12 +178,12 @@ function searchForms($geovisor_id)
 
 
         echo '<div class="inline fields">';
-        echo '<label class="search-label">'.$attribute_label.':</label>';
+        echo '<label class="search-attribute-label">'.$attribute_label.':</label>';
         
         echo '<div class="field">';
         
 
-        echo '<div  class="ui input"><input type="text" id="search_'.$search_id.'" placeholder="Buscar..."></div>';
+        echo '<div  class="ui input"><input type="text" autocomplete="off" id="search_'.$search_id.'" placeholder="Buscar..."></div>';
 
         echo '</div>'; //field
 
@@ -183,11 +205,11 @@ function searchForms($geovisor_id)
 
 
         echo '<div class="inline fields">';
-        echo '<label class="search-label">'.$attribute_label.':</label>';
+        echo '<label class="search-attribute-label">'.$attribute_label.':</label>';
         
         echo '<div class="field">';
         
-        echo '<div class="ui search selection dropdown"><input type="hidden" id="search_'.$search_id.'"> <i class="dropdown icon"></i><div class="default text">Seleccionar</div><div class="menu">';
+        echo '<div class="ui search selection dropdown"><input type="hidden" autocomplete="off" id="search_'.$search_id.'"> <i class="dropdown icon"></i><div class="default text">Seleccionar</div><div class="menu">';
         for($j=0; $j<count($values); $j++)
         {
           echo ' <div class="item" data-value="'.$values[$j][$attribute].'">'.$values[$j][$attribute].'</div>';
@@ -214,7 +236,7 @@ function searchForms($geovisor_id)
 
 
         echo '<div class="inline fields">';
-        echo '<label class="search-label">'.$attribute_label.':</label>';
+        echo '<label class="search-attribute-label">'.$attribute_label.':</label>';
         
         echo '<div class="field">';
         
@@ -243,9 +265,16 @@ function searchForms($geovisor_id)
 ?>
 
 <div class="ui pointing secondary menu">
-  <div class="item active" data-tab="tab-layers">Capas</div>
-  <div class="item" data-tab="tab-legend">Leyenda</div>
-  <div class="item" data-tab="tab-search">Búsqueda</div>
+  <div class="item active" data-tab="tab-layers"><i class="fas fa-layer-group"></i>&nbsp;Capas</div>
+  <div class="item" data-tab="tab-legend"><i class="fas fa-list-alt"></i>&nbsp;Leyenda</div>
+  
+  <?php 
+    if(count($searches)>0)
+    {
+      echo '<div class="item" data-tab="tab-search"><i class="fas fa-search"></i>&nbsp;Búsquedas</div>';
+    }
+  ?>
+
 </div>
 
 
@@ -262,7 +291,7 @@ function searchForms($geovisor_id)
   <div id="arbolCapas<?php echo $geovisor_id;?>" style="margin-top: 10px;" class="ui list">
 
     <?php
-        layerTree($geovisor_id, 0);
+        layerTreeCtrl($geovisor_id, 0);
     ?>
     
   </div>
@@ -272,135 +301,18 @@ function searchForms($geovisor_id)
   <div id="legend-items"></div>
 </div>
 
-<div class="ui bottom attached tab segment" data-tab="tab-search">
-  <div id="search-items">
-      
+<?php 
 
-    <?php
-        searchForms($geovisor_id);
-    ?>
+  if(count($searches)>0)
+  {
+    echo '<div class="ui bottom attached tab segment" data-tab="tab-search">';
+      echo '<div id="search-items">';      
+        searchForms($searches);
+      echo '</div>';
+    echo '</div>';
+  }
 
-  </div>
-</div>
-
-
-<style type="text/css">
-  
-
-      .grupo_capas_head
-      {
-        padding-left: 5px;
-        margin-bottom: 4px;
-        border-bottom: 1px solid #333;
-        color: #333;
-        font-size: 10pt;
-        padding-top: 5px;
-        cursor: pointer;
-      }
-
-      .grupo_capas_head span
-      {
-        margin-left: 5px;
-        cursor: pointer;
-      }
-
-      .grupo_capas_items
-      {
-         margin-top: 5px;
-         margin-left: 15px;
-         width: 100%;
-         color: #333;
-         font-size: 9pt;
-      }
-
-      .grupo_capas_items label
-      {
-        color: #333;
-      }
-
-      .options-lyr
-      {
-        margin-left: 10px;
-      }
-
-      .toggle-options-lyr
-      {
-        margin-left: 3px;
-        color: #999;
-      }
-
-      .toggle-options-lyr:hover
-      {
-        margin-left: 3px;
-        color: #333;
-      }
-
-      .toggle-legend-lyr {
-          margin-left: 2px;
-          color: #999;
-      }
-
-      .toggle-legend-lyr:hover {
-          margin-left: 2px;
-          color: #333;
-      }
-
-      .slider_transparency
-      {
-        width: 150px;
-      }
-      
-      .spin-zindex
-      {
-        cursor: pointer;
-      }
-
-      .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
-      {
-          border: 1px solid #d3d3d3;
-          font-weight: normal;
-          color: #555555;
-          background: none;
-          background-color: #555555 !important;
-      }
-
-      .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
-      {
-          border: 1px solid #d3d3d3;
-          font-weight: normal;
-          color: #555555;
-          background: none;
-          background-color: #333333 !important;
-      }
-
-      .radio, .checkbox
-      {
-        margin-bottom: 0px !important;
-      }
-
-      .ui.segment
-      {
-        padding: 0; 
-      }
-
-      .ui.menu .item
-      {
-        font-size: 8pt;
-      }
-
-      .ui.attached.segment
-      {
-        border: none;
-      }
-
-      .ui.selection.dropdown 
-      {
-        font-size: 9pt !important;
-      }
-
-
-
-</style>
+?>
 
 <script type="text/javascript">
   
@@ -429,7 +341,6 @@ function searchForms($geovisor_id)
   });
 
   $('.menu .item').tab();
-
 
   $('.ui.dropdown').dropdown({});
 
@@ -483,6 +394,9 @@ function searchForms($geovisor_id)
 
          if(lyr != null)
           lyr.setOpacity(opacity);
+
+
+         $(this).prev().find('.transparency-value').html(''+(opacity*100)+'%')
          
       }
     });
@@ -527,7 +441,7 @@ function searchForms($geovisor_id)
             lyr.setVisible(true);
 
 
-            if(lyr instanceof ol.layer.Tile)
+            if(lyr instanceof ol.layer.Tile || lyr instanceof ol.layer.Image)
             {
               visibleLayers.push(capa);
             }
@@ -540,7 +454,7 @@ function searchForms($geovisor_id)
         {
             lyr.setVisible(false);
 
-            if(lyr instanceof ol.layer.Tile)
+            if(lyr instanceof ol.layer.Tile || lyr instanceof ol.layer.Image)
             {
               visibleLayers.splice(visibleLayers.indexOf(capa),1);
             }
@@ -548,7 +462,8 @@ function searchForms($geovisor_id)
         } 
       }
 
-      refreshLehend();  
+      refreshLehend();
+      refreshActiveLayersBufferDialog();
   }
 
   function getLayer(capa)
@@ -570,7 +485,8 @@ function searchForms($geovisor_id)
     {
       var visLyr = getLayer(visibleLayers[i]);
 
-      legendDiv+='<div style="margin:5px; display: block; float:left;"><span class="legend-item-head">'+visLyr.get('name')+'</span><br><img class="legend-item-img" src="'+visLyr.get('legend_url')+'"/></div>';
+      if(visLyr.get('legend_url') != null)
+        legendDiv+='<div style="margin:5px; display: block; float:left;"><div class="legend-item-head"><span>'+visLyr.get('name')+'</span></div><div><img class="legend-item-img" src="'+visLyr.get('legend_url')+'"/></div></div>';
     }
 
     $('#legend-items').html(legendDiv);
@@ -653,7 +569,7 @@ function searchForms($geovisor_id)
                       //$('<td><a href="javascript:showFeatureGeometry(\''+wktGeometry+'\')"><i class="search icon"></i></a></td>').appendTo(tableResultRow);
 
 
-                      $('<td><a href="javascript:showFeature('+search_id+',\''+r[0]+'\')"><i class="search icon"></i></a></td>').appendTo(tableResultRow);
+                      $('<td><a href="javascript:showFeature(\'search\','+search_id+',\''+r[0]+'\')"><i class="search icon"></i></a></td>').appendTo(tableResultRow);
 
                       tableResultBody.append(tableResultRow);
                       
@@ -695,14 +611,23 @@ function searchForms($geovisor_id)
       });
   }
 
-  function showFeature(search_id, FeatureId)
+  function showFeature(type, source_id, FeatureId, zoomTo = true)
   {
     //https://territoriosenriesgo.unah.edu.hn/geoserver/wfs?service=wfs&version=2.0.0&request=GetFeature&typeNames=geonode:termicas&featureID=2&outputFormat=application/json
     //gid
+    var urlShowFeature = '';
+
+    if(type == 'search')
+      urlShowFeature = 'lib/xajax/x_get_geometry_search.php?geovisor_id=<?php echo $geovisor_id;?>&search_id=' + source_id + '&feature_id=' + FeatureId;
+    else if(type == 'buffer')
+      urlShowFeature = 'lib/xajax/x_get_geometry_by_geoserver_layer_id.php?geovisor_id=<?php echo $geovisor_id;?>&geoserver_layer_id=' + source_id + '&feature_id=' + FeatureId;
+
     $.ajax({
-            url: 'lib/xajax/x_get_geometry_search.php?geovisor_id=<?php echo $geovisor_id;?>&search_id=' + search_id + '&feature_id=' + FeatureId,
+            url: urlShowFeature,
             dataType: 'json',
             success: function(response) {
+
+
 
                 if(response.success)
                 {
@@ -710,9 +635,7 @@ function searchForms($geovisor_id)
                   {
                     var geometry = response.results[0]['geom'];
 
-                    console.log(response);
-
-                    showFeatureGeometry(geometry);
+                    showFeatureGeometry(geometry, zoomTo);
                   }
                 }
                 else
@@ -730,7 +653,7 @@ function searchForms($geovisor_id)
   }
 
 
-  function showFeatureGeometry(featureGeometry)
+  function showFeatureGeometry(featureGeometry, zoomTo)
   {
 
     var parser = new ol.format.WKT();
@@ -740,11 +663,12 @@ function searchForms($geovisor_id)
       featureProjection: 'EPSG:3857',
     });
 
+    lyrResult.getSource().clear();
 
     lyrResult.getSource().addFeatures([feature]);
 
-    map.getView().fit(feature.getGeometry())
-    
+    if(zoomTo)
+      map.getView().fit(feature.getGeometry())
 
   }
 
@@ -795,26 +719,59 @@ for($j=0; $j<count($all_layers); $j++)
   $lyr_name = $lyr["name"];
   $ordr = $lyr["ordr"];
   $active = $lyr["active"];
+  $transparency = $lyr["transparency"];
   $queryable = $lyr["queryable"];
   $zindex = $lyr["zindex"];
   $geoserver_label_style_id = $lyr["geoserver_label_style_id"];
   $label_active = $lyr["label_active"];
+  $label_zoom_min = $lyr["label_zoom_min"];
+  $label_zoom_max = $lyr["label_zoom_max"];
 
-  echo "var lyr".$lyr_id." = new ol.layer.Tile({visible: ";
- 
-  if($active == 't') echo 'true'; else echo 'false';
-  echo ", source: new ol.source.TileWMS({url: '";
-  if(substr($geoserver_url, 0, 4 ) === "http")
-    echo $geoserver_url;
+  $tiled = $lyr["tiled"];
+
+  if($transparency == null)
+  {
+    $transparency = 100;
+  }
+
+  $transparency = $transparency / 100;
+
+  if($tiled == 't')
+  { 
+    echo "var lyr".$lyr_id." = new ol.layer.Tile({visible: ";
+
+    if($active == 't') echo 'true'; else echo 'false';
+    echo ", source: new ol.source.TileWMS({url: '";
+    if(substr($geoserver_url, 0, 4 ) === "http")
+      echo $geoserver_url;
+    else
+      echo 'http://'.$geoserver_url;
+    
+    echo "/wms', params: {'FORMAT': 'image/png', 'VERSION': '1.1.1', tiled: true, ";
+    echo "STYLES: '".$geoserver_style_id."', access_token: '".$access_token."', LAYERS: '".$geoserver_layer_id."'}, serverType: 'geoserver'}), opacity: ".$transparency."}); \n\t";
+  }
   else
-    echo 'http://'.$geoserver_url;
-	
-  echo "/wms', params: {'FORMAT': 'image/png', 'VERSION': '1.1.1', tiled: true, ";
-  echo "STYLES: '".$geoserver_style_id."', access_token: '".$access_token."', LAYERS: '".$geoserver_layer_id."'}, serverType: 'geoserver'}), opacity: 0.9}); \n\t";
+  {
+      echo "var lyr".$lyr_id." = new ol.layer.Image({visible: ";
+
+      if($active == 't') echo 'true'; else echo 'false';
+      echo ", source: new ol.source.ImageWMS({url: '";
+      if(substr($geoserver_url, 0, 4 ) === "http")
+        echo $geoserver_url;
+      else
+        echo 'http://'.$geoserver_url;
+      
+      echo "/wms', params: {'FORMAT': 'image/png', 'VERSION': '1.1.1', ";
+
+      echo "STYLES: '".$geoserver_style_id."', access_token: '".$access_token."', LAYERS: '".$geoserver_layer_id."'}, serverType: 'geoserver'}), opacity: ".$transparency."}); \n\t";
+  }
+
+  
   //params: propertyName=the_geom,
 
   echo "lyr".$lyr_id.".set('geoserver_layer_id', '".$geoserver_layer_id."');";
   echo "lyr".$lyr_id.".set('name', '".$lyr_name."');";
+  echo "lyr".$lyr_id.".set('queryable', '".$queryable."');";
 
   //properties
 
@@ -831,7 +788,7 @@ for($j=0; $j<count($all_layers); $j++)
   if($geoserver_style_id != null AND $geoserver_style_id != '')
     $legend_url.='&STYLE='.$geoserver_style_id;
       
-  $legend_url.='&LEGEND_OPTIONS=fontName:SanSerif.bold;bgColor:0xFFFFFF;fontSize:9;fontColor:0x333333;forceLabels:on;dpi:100&access_token='.$GLOBALS['access_token'];
+  $legend_url.='&LEGEND_OPTIONS=fontName:'.$GLOBALS['legend_font'].';bgColor:0xFFFFFF;fontSize:9;fontColor:0x333333;forceLabels:on;dpi:100&access_token='.$GLOBALS['access_token'];
 
 
   echo "lyr".$lyr_id.".set('legend_url', '".$legend_url."');";
@@ -873,8 +830,12 @@ for($j=0; $j<count($all_layers); $j++)
   if($geoserver_label_style_id != null && $geoserver_label_style_id != '')
   {
     echo "var lyr".$lyr_id."_lbl = new ol.layer.Tile({visible: ";
-    if($active == 't' && $label_active == 't') echo 'true'; else echo 'false';
-    echo ", source: new ol.source.TileWMS({url: '";
+    if($active == 't' && $label_active == 't') echo 'true, '; else echo 'false, ';
+        
+    if($label_zoom_min != null && $label_zoom_min != '') echo 'minZoom:' . $label_zoom_min . ', ';
+    if($label_zoom_max != null && $label_zoom_max != '') echo 'maxZoom:' . $label_zoom_max . ', ';
+
+    echo "source: new ol.source.TileWMS({url: '";
     if(substr($geoserver_url, 0, 4 ) === "http")
       echo $geoserver_url;
     else
@@ -887,6 +848,9 @@ for($j=0; $j<count($all_layers); $j++)
      echo "lyr".$lyr_id."_lbl.setZIndex(".($zindex+1).");";
 
     echo "map.addLayer(lyr".$lyr_id."_lbl); \n\t";
+
+    echo "lyr".$lyr_id."_lbl.set('legend_url', null);";
+    echo "lyr".$lyr_id."_lbl.set('queryable', false);";
 
 
     echo "lyrsMap['".$geoserver_label_style_id."'] = lyr".$lyr_id."_lbl;";

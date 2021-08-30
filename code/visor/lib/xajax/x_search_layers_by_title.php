@@ -1,8 +1,11 @@
 <?php
 
+header("Content-Type: text/plain; charset=utf-8");
+
+
 require_once("../framework/layer.php");
 
-header("Content-Type: text/plain; charset=utf-8");
+//header("Content-Type: text/plain; charset=utf-8");
 
 
 $title = $_REQUEST["title"];

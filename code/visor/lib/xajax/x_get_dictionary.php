@@ -2,8 +2,8 @@
 
 header("Content-Type: text/plain; charset=utf-8");
 
-require_once("../framework/layer.php");
 
+require_once("../framework/layer.php");
 
 $dictionary = Layer::get_dictionary();
 

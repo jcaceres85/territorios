@@ -58,6 +58,7 @@ DEBUG = ast.literal_eval(os.getenv('DEBUG', 'True'))
 
 #SITENAME
 SITENAME = os.getenv('SITENAME', 'Geoportal Territorios en Riesgo')
+SITE_NAME = os.getenv('SITE_NAME', 'Geoportal Territorios en Riesgo')
 
 # Set to True to load non-minified versions of (static) client dependencies
 # Requires to set-up Node and tools that are required for static development

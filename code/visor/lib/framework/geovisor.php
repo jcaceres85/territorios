@@ -8,7 +8,7 @@ class Geovisor
 	
 	public static function get($id)
 	{
-		$sql_query = "SELECT id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public FROM geovisor ";
+		$sql_query = "SELECT * FROM geovisor ";
 		$sql_query.= "WHERE id='$id'";
 
 		$objects = DBManager::execute_query($sql_query);
@@ -18,7 +18,7 @@ class Geovisor
 
 	public static function get_by_slug($slug)
 	{
-		$sql_query = "SELECT id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public FROM geovisor ";
+		$sql_query = "SELECT * FROM geovisor ";
 		$sql_query.= "WHERE slug='$slug'";
 
 		$objects = DBManager::execute_query($sql_query);
@@ -28,7 +28,7 @@ class Geovisor
 
 	public static function get_all()
 	{
-		$sql_query = "SELECT id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public FROM geovisor ";
+		$sql_query = "SELECT * FROM geovisor ";
 
 		$objects = DBManager::execute_query($sql_query);
 
@@ -37,7 +37,7 @@ class Geovisor
 
 	public static function get_all_public()
 	{
-		$sql_query = "SELECT id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public FROM geovisor WHERE is_public=true ";
+		$sql_query = "SELECT * FROM geovisor WHERE is_public=true ";
 
 		$objects = DBManager::execute_query($sql_query);
 
@@ -78,7 +78,7 @@ class Geovisor
 
 	public static function get_layers_by_geovisor_category($geovisor_id, $category_id)
 	{
-		$sql_query = "SELECT id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency, geoserver_label_style_id, label_active, label_zoom_min, label_zoom_max FROM geovisor_layer ";
+		$sql_query = "SELECT id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency, geoserver_label_style_id, label_active, label_zoom_min, label_zoom_max, tiled FROM geovisor_layer ";
 		$sql_query.= "WHERE geovisor_id='$geovisor_id' AND category_id='$category_id' ORDER BY ordr";
 
 		$objects = DBManager::execute_query($sql_query);
@@ -105,15 +105,28 @@ class Geovisor
 		$img_logo_src = $data->img_logo_src;
 		$base_layer = $data->base_layer;
 
+		$primary_color = $data->primary_color;
+		$secondary_color = $data->secondary_color;
+		$custom_css = $data->custom_css;
+
+		$main_font = $data->main_font;
+		$main_font_size = $data->main_font_size;
+		$legend_font = $data->legend_font;
+		$legend_font_size = $data->legend_font_size;
+
 
 		$tree = $data->tree;
+
+		$treeMenu = $data->treeMenu;
+
+		$searches = $data->searches;
 
 		DBManager::connect();
 
 		DBManager::execute_nonquery_ts('BEGIN TRANSACTION');
 
 		//UPDATE geovisor
-		$sql_update_geovisor = "UPDATE geovisor SET name='$geovisor_name', title='$geovisor_title', url='', coord_ini='$geovisor_coord', max_extent='', zoom_ini='$geovisor_zoom', zoom_min='$geovisor_zoom_min', zoom_max='$geovisor_zoom_max', logo='$img_logo_src', message_ini='$geovisor_msj_ini', base_layer='$base_layer', slug='$geovisor_slug', is_public='$geovisor_is_public' WHERE id='$geovisor_id';";
+		$sql_update_geovisor = "UPDATE geovisor SET name='$geovisor_name', title='$geovisor_title', url='', coord_ini='$geovisor_coord', max_extent='', zoom_ini='$geovisor_zoom', zoom_min='$geovisor_zoom_min', zoom_max='$geovisor_zoom_max', logo='$img_logo_src', message_ini='$geovisor_msj_ini', base_layer='$base_layer', slug='$geovisor_slug', is_public='$geovisor_is_public', primary_color='$primary_color', secondary_color='$secondary_color', custom_css='$custom_css', main_font='$main_font', main_font_size='$main_font_size', legend_font='$legend_font', legend_font_size='$legend_font_size'  WHERE id='$geovisor_id';";
 
 		DBManager::execute_nonquery_ts($sql_update_geovisor);
 
@@ -161,9 +174,16 @@ class Geovisor
 				$active = $obj->active;
 				$queryable = $obj->queryable;
 				$category_id = $obj->category_id;
+
+				$geoserver_label_style_id =$obj->geoserver_label_style_id;
+				$label_active = $obj->label_active != null? $obj->label_active: 'f';
+				$label_zoom_min = $obj->label_zoom_min!=''?$obj->label_zoom_min: 'null';
+				$label_zoom_max = $obj->label_zoom_max!=''?$obj->label_zoom_max: 'null';
+
+				$tiled = $obj->tiled != null? $obj->tiled: 'f';
 				//geoserver_label_style_id
 
-				$sql_insert_geovisor_layer = "INSERT INTO geovisor_layer(id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency) VALUES ('$id_count_layer', '$geovisor_id', '$category_id', '$geoserver_url', '$geoserver_layer_id', '$geoserver_style_id', '$lyr_name', '$id_count_layer', '$active', '$queryable', '$zindex', '$transparency');";
+				$sql_insert_geovisor_layer = "INSERT INTO geovisor_layer(id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency, geoserver_label_style_id, label_active, label_zoom_min, label_zoom_max, tiled) VALUES ('$id_count_layer', '$geovisor_id', '$category_id', '$geoserver_url', '$geoserver_layer_id', '$geoserver_style_id', '$lyr_name', '$id_count_layer', '$active', '$queryable', '$zindex', '$transparency','$geoserver_label_style_id', '$label_active', $label_zoom_min, $label_zoom_max, '$tiled');";
 
 				DBManager::execute_nonquery_ts($sql_insert_geovisor_layer);
 
@@ -172,6 +192,52 @@ class Geovisor
 				$count_updates++;
 
 			}
+		}
+
+
+
+		//UPDATE geovisor_search
+		$sql_delete_searches = "DELETE FROM geovisor_search WHERE geovisor_id = '$geovisor_id'";
+		DBManager::execute_nonquery_ts($sql_delete_searches);
+
+		for($i=0; $i<count($searches); $i++)
+		{
+			$s = $searches[$i];
+
+			$search_id = $s->search_id;
+			$layer_id = $s->layer_id;
+			$attribute = $s->attribute;
+			$type = $s->type;
+			$search_text = $s->search_text;
+
+			$sql_insert_geovisor_search = "INSERT INTO geovisor_search(id, geovisor_id, layer_id, attribute, type, search_text) VALUES ('$search_id', '$geovisor_id', '$layer_id', '$attribute', '$type', '$search_text');";
+
+			DBManager::execute_nonquery_ts($sql_insert_geovisor_search);
+		}
+
+
+		//UPDATE geovisor_search
+		$sql_delete_menus = "DELETE FROM geovisor_menu WHERE geovisor_id = '$geovisor_id'";
+		DBManager::execute_nonquery_ts($sql_delete_menus);
+
+		for($i=0; $i<count($treeMenu); $i++)
+		{
+			$obj = $treeMenu[$i];
+
+			if($obj->type != null)
+			{
+				$menu_id = $obj->id;
+				$menu_type = $obj->type;
+				$menu_name = $obj->name;
+				$menu_content = $obj->content;
+				$menu_parent_id = $obj->parent_id;
+				
+				$sql_insert_geovisor_menu = "INSERT INTO geovisor_menu(id, geovisor_id, type, name, content, parent_id) VALUES ('$menu_id', '$geovisor_id', '$menu_type', '$menu_name', '$menu_content', '$menu_parent_id');";
+
+				DBManager::execute_nonquery_ts($sql_insert_geovisor_menu);
+			}
+
+			
 		}
 
 
@@ -200,6 +266,14 @@ class Geovisor
 		$img_logo_src = $data->img_logo_src;
 		$base_layer = $data->base_layer;
 
+		$primary_color = $data->primary_color;
+		$secondary_color = $data->secondary_color;
+		$custom_css = $data->custom_css;
+
+		$main_font = $data->main_font;
+		$main_font_size = $data->main_font_size;
+		$legend_font = $data->legend_font;
+		$legend_font_size = $data->legend_font_size;
 
 		$tree = $data->tree;
 
@@ -214,7 +288,7 @@ class Geovisor
 
 		//UPDATE geovisor
 		
-		$sql_insert_geovisor = "INSERT INTO geovisor(id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public) VALUES ('$geovisor_id', '$geovisor_name', '$geovisor_title', '', '$geovisor_coord', '$geovisor_zoom', '$geovisor_zoom_min', '$geovisor_zoom_min', '$geovisor_zoom_max', '$img_logo_src', '$geovisor_msj_ini', '', '$base_layer', '$geovisor_slug', '$geovisor_is_public');";
+		$sql_insert_geovisor = "INSERT INTO geovisor(id, name, title, url, coord_ini, max_extent, zoom_ini, zoom_min, zoom_max, logo, message_ini, dictionary, base_layer, slug, is_public, primary_color, secondary_color, custom_css, main_font, main_font_size, legend_font, legend_font_size) VALUES ('$geovisor_id', '$geovisor_name', '$geovisor_title', '', '$geovisor_coord', '$geovisor_zoom', '$geovisor_zoom_min', '$geovisor_zoom_min', '$geovisor_zoom_max', '$img_logo_src', '$geovisor_msj_ini', '', '$base_layer', '$geovisor_slug', '$geovisor_is_public', '$primary_color', '$secondary_color', '$custom_css', '$main_font', '$main_font_size', '$legend_font', '$legend_font_size');";
 
 		DBManager::execute_nonquery_ts($sql_insert_geovisor);
 
@@ -262,10 +336,16 @@ class Geovisor
 				$active = $obj->active;
 				$queryable = $obj->queryable;
 				$category_id = $obj->category_id;
+
+				$geoserver_label_style_id = $obj->geoserver_label_style_id;
+				$label_active = $obj->label_active != null? $obj->label_active: false;
+				$label_zoom_min = $obj->label_zoom_min!=''?$obj->label_zoom_min: 'null';
+				$label_zoom_max = $obj->label_zoom_max!=''?$obj->label_zoom_max: 'null';
 				//geoserver_label_style_id
+				$tiled = $obj->tiled != null? $obj->tiled: 'f';
 
 
-				$sql_insert_geovisor_layer = "INSERT INTO geovisor_layer(id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency) VALUES ('$id_count_layer', '$geovisor_id', '$category_id', '$geoserver_url', '$geoserver_layer_id', '$geoserver_style_id', '$lyr_name', '$id_count_layer', '$active', '$queryable', '$zindex', '$transparency');";
+				$sql_insert_geovisor_layer = "INSERT INTO geovisor_layer(id, geovisor_id, category_id, geoserver_url, geoserver_layer_id, geoserver_style_id, name, ordr, active, queryable, zindex, transparency, geoserver_label_style_id, label_active, label_zoom_min, label_zoom_max, tiled) VALUES ('$id_count_layer', '$geovisor_id', '$category_id', '$geoserver_url', '$geoserver_layer_id', '$geoserver_style_id', '$lyr_name', '$id_count_layer', '$active', '$queryable', '$zindex', '$transparency','$geoserver_label_style_id', '$label_active', $label_zoom_min, $label_zoom_max, '$tiled');";
 
 				DBManager::execute_nonquery_ts($sql_insert_geovisor_layer);
 
@@ -276,6 +356,42 @@ class Geovisor
 			}
 		}
 
+
+		for($i=0; $i<count($searches); $i++)
+		{
+			$s = $searches[$i];
+
+			$search_id = $s->search_id;
+			$layer_id = $s->layer_id;
+			$attribute = $s->attribute;
+			$type = $s->type;
+			$search_text = $s->search_text;
+
+			$sql_insert_geovisor_search = "INSERT INTO geovisor_search(id, geovisor_id, layer_id, attribute, type, search_text) VALUES ('$search_id', '$geovisor_id', '$layer_id', '$attribute', '$type', '$search_text');";
+
+			DBManager::execute_nonquery_ts($sql_insert_geovisor_search);
+		}
+
+
+		for($i=0; $i<count($treeMenu); $i++)
+		{
+			$obj = $treeMenu[$i];
+
+			if($obj->type != null)
+			{
+				$menu_id = $obj->id;
+				$menu_type = $obj->type;
+				$menu_name = $obj->name;
+				$menu_content = $obj->content;
+				$menu_parent_id = $obj->parent_id;
+				
+				$sql_insert_geovisor_menu = "INSERT INTO geovisor_menu(id, geovisor_id, type, name, content, parent_id) VALUES ('$menu_id', '$geovisor_id', '$menu_type', '$menu_name', '$menu_content', '$menu_parent_id');";
+
+				DBManager::execute_nonquery_ts($sql_insert_geovisor_menu);
+			}
+
+			
+		}
 
 		
 		DBManager::execute_nonquery_ts('COMMIT TRANSACTION');

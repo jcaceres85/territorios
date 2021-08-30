@@ -1,8 +1,11 @@
 <?php
 
+header("Content-Type: text/plain; charset=utf-8");
+
+
 require_once("../framework/geovisor.php");
 
-header("Content-Type: text/plain; charset=UTF-8");
+//header("Content-Type: text/plain; charset=UTF-8");
 
 
 $headers = apache_request_headers();

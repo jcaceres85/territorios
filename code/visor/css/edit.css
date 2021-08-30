@@ -8,7 +8,7 @@
 
   .ctrl-geovisor
   {
-    background-color: #994a7e !important;
+    background-color: #24A737 !important;
     color: #fff !important;
   }
 
@@ -279,27 +279,27 @@
 
 .ol-zoom .ol-zoom-in
 {
-  background-color: #994a7e;
+  background-color: #24A737;
 }
 
 .ol-zoom .ol-zoom-out
 {
-  background-color: #994a7e;
+  background-color: #24A737;
 }
 
 .ol-full-screen
 {
- background-color: #994a7e; 
+ background-color: #24A737; 
 }
 
 .ol-control button
 {
- background-color: #994a7e;  
+ background-color: #24A737;  
 }
 
 .jsPanel-theme-primary
 {
- background-color: #994a7e !important;   
+ background-color: #24A737 !important;   
 }
 
 .ol-overviewmap {
@@ -359,7 +359,7 @@
     width: 266px;
     height: 24px;
     border-radius: 5px;
-    background-color: rgba(153,74,126,.3);
+    background-color: rgba(36,167,55,0.9);
     z-index: 500;
 }
 
@@ -389,6 +389,12 @@
 
 .ol-scale-line
 {
-  background-color: rgba(153,74,126,.3) !important;
+  background-color: rgba(36,167,55,0.9) !important;
   left: 286px !important;
+}
+
+
+#custom_css
+{
+    font-family: 'Courier New', monospace;
 }

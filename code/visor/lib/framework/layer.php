@@ -5,6 +5,14 @@ require_once("dbmanager.php");
 class Layer
 {
 
+    public static function get_all()
+    {
+        $sql_query = "SELECT resourcebase_ptr_id AS id, name, title_en AS title FROM layers_layer ";
+
+        $objects = DBManager::execute_query($sql_query);
+
+        return $objects;
+    }
 	
 	public static function get_by_name($name)
 	{
@@ -31,7 +39,7 @@ class Layer
     public static function get_labels($layer_id)
     {
         $sql_query = "SELECT a.attribute,a.attribute_label as label,display_order FROM layers_attribute a ";
-        $sql_query.= "WHERE a.layer_id='$layer_id' attribute_label <> '' AND attribute_label IS NOT NULL";
+        $sql_query.= "WHERE a.layer_id='$layer_id' AND attribute_label <> '' AND attribute_label IS NOT NULL";
 
         $objects = DBManager::execute_query($sql_query);
 

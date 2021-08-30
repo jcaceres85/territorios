@@ -1,27 +1,24 @@
+  
+  
+
   body
   {
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
-    font-size: 9pt;
+    font-family: var(--main-font);
+    font-size:var(--main-font-size);
     overflow-x: hidden;
     overflow-y: hidden;
   }
 
   .ctrl-geovisor
   {
-    background-color: #24A737 !important;
+    background-color: var(--primary-color) !important;
     color: #fff !important;
   }
 
-
-  .ctrl-geovisor:active
-  {
-    background-color: #3e1b31 !important;
-    color: #fff !important;
-  }
 
   .ui.button.toggle.active, .ui.buttons .button.toggle.active, .ui.toggle.buttons .active.button
   {
-    background-color: #2c6d35 !important;
+    background-color: var(--primary-color) !important;
   }
 
   .ctrl-geovisor i
@@ -31,33 +28,40 @@
 
   .search-label 
   {
-    font-size: 8pt !important;
+    font-size: var(--main-font-size) !important;
+    font-weight: bold !important;
+  }
+
+  .search-attribute-label
+  {
+    font-size: var(--main-font-size) !important;
+    font-weight: normal !important; 
   }
 
   .ui.selection.dropdown .menu>.item
   {
-    font-size: 8pt;
+    font-size: var(--main-font-size);
   }
 
   .ui.selection.visible.dropdown>.text
   {
-    font-size: 8pt;
+    font-size: var(--main-font-size);
   }
 
   .ui.search.dropdown>.text
   {
-    font-size: 8pt;
+    font-size: var(--main-font-size);
   }
 
   .jsPanel-theme-primary
   {
-    background-color: #24A737 !important;
+    background-color:  var(--secondary-color) !important;
     border-radius: 5px !important;
   }
 
   .jsPanel .jsPanel-content
   {
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-family: var(--primary-font);
     border-radius: 0 0 5px 5px !important;
   }
 
@@ -86,10 +90,18 @@
   }
 
 
+  #panel_menu
+  {
+    position: absolute;
+    top: 3px;
+    right: 42px;
+    z-index: 101;
+  }
+
   #panel_tools
   {
     position: absolute;
-    top: 10px;
+    top: 3px;
     left: 8px;
     z-index: 101;
   }
@@ -129,7 +141,7 @@
   #lblTabla
   {
     font-variant: small-caps;
-    font-size: 10pt;
+    font-size: var(--main-font-size);
     margin-left: 5px;
   }
 
@@ -170,7 +182,7 @@
     left: -50px;
     margin-left: -2px;
     min-width: 150px;
-    font-size: 10pt;
+    font-size: var(--main-font-size);
   }
   .ol-popup-context-menu:after, .ol-popup-context-menu:before {
     top: 100%;
@@ -237,18 +249,38 @@
 
 
 .ui.table {
-    font-size: 9pt !important;
+    font-size: var(--main-font-size) !important;
 }
 
 .tabla-info
 {
   margin: 10px;
-  font-size: 7pt;
+  font-size: 17pt;
 }
 
 .tabla-info td
 {
   padding: 5px;
+}
+
+.tabla-info tr
+{
+
+}
+
+.tabla-info tr:hover
+{
+  background-color: rgba(0,0,0,.05);
+}
+
+.row-selected
+{
+  background-color: rgba(126,168,210,0.6);
+}
+
+.row-selected:hover
+{
+  background-color: rgba(126,168,210,0.8) !important;
 }
 
 
@@ -286,28 +318,29 @@
 .ol-zoom .ol-zoom-in
 {
 
-  background-color: #24A737;
+  background-color: var(--primary-color);
 }
 
 .ol-zoom .ol-zoom-out
 {
-  background-color: #24A737;
+  background-color: var(--primary-color);
 }
 
 .ol-full-screen
 {
- background-color: #24A737; 
+ background-color: var(--primary-color); 
 }
 
 .ol-control button
 {
- background-color: #24A737;  
+ background-color: var(--primary-color);  
 }
 
 
 .ol-overviewmap {
-    left: 0.5em;
-    bottom: 2.5em !important;
+
+    left: 1em;
+    bottom: 4em !important;
 }
 
 .tooltip {
@@ -347,11 +380,12 @@
 {
   position: absolute;
   top: 45px;
-  left: 390px;
+  left: 195px;
   border-radius: 5px;
-  background-color: #2c6d35;
+  background-color: var(--primary-color);
   color: #fff;
   z-index: 50;
+  font-size: var(--main-font-size) !important;
 }
 
 #panel_georef
@@ -362,7 +396,7 @@
     width: 266px;
     height: 24px;
     border-radius: 5px;
-    background-color: rgba(36,167,55,0.9);
+    background-color: var(--primary-color);
     z-index: 50;
 }
 
@@ -370,6 +404,10 @@
 #panel_search_result
 {
   padding: 10px;
+}
+
+#panel_buffer_content {
+    padding: 10px;
 }
 
 #layerTools
@@ -404,7 +442,7 @@
 
 .ol-scale-line
 {
-  background-color: rgba(36,167,55,0.9) !important;
+  background-color: var(--primary-color) !important;
   left: 286px !important;
 }
 
@@ -419,9 +457,9 @@
 }
 
 .legend-item-head{
-  font-size:9pt;
-  font-weight: bold;
+  font-size:var(--main-font-size);
   color: #333;
+  margin-bottom: 5px;
 }
 
 .legend-item-img
@@ -433,5 +471,127 @@
 #search-items
 {
   padding: 10px;
+}
+
+
+.grupo_capas_head
+{
+  padding-left: 5px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #333;
+  color: #333;
+  font-size: var(--main-font-size);
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.grupo_capas_head span
+{
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.grupo_capas_items
+{
+   margin-top: 5px;
+   margin-left: 15px;
+   width: 100%;
+   color: #333;
+   font-size: var(--main-font-size);
+}
+
+.grupo_capas_items label
+{
+  color: #333;
+}
+
+.activate-layer-label
+{
+  cursor: pointer;
+}
+
+.activate-layer-label:hover
+{
+  color: #008080;
+}
+
+.options-lyr
+{
+  margin-left: 10px;
+}
+
+.toggle-options-lyr
+{
+  margin-left: 3px;
+  color: #999;
+}
+
+.toggle-options-lyr:hover
+{
+  margin-left: 3px;
+  color: #333;
+}
+
+.toggle-legend-lyr {
+    margin-left: 2px;
+    color: #999;
+}
+
+.toggle-legend-lyr:hover {
+    margin-left: 2px;
+    color: #333;
+}
+
+.slider_transparency
+{
+  width: 150px;
+}
+
+.spin-zindex
+{
+  cursor: pointer;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+{
+    border: 1px solid #d3d3d3;
+    font-weight: normal;
+    color: #555555;
+    background: none;
+    background-color: #555555 !important;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+{
+    border: 1px solid #d3d3d3;
+    font-weight: normal;
+    color: #555555;
+    background: none;
+    background-color: #333333 !important;
+}
+
+.radio, .checkbox
+{
+  margin-bottom: 0px !important;
+}
+
+.ui.segment
+{
+  padding: 0; 
+}
+
+.ui.menu .item
+{
+  font-size: var(--main-font-size);
+}
+
+.ui.attached.segment
+{
+  border: none;
+}
+
+.ui.selection.dropdown 
+{
+  font-size: var(--main-font-size) !important;
 }
 

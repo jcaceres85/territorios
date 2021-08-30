@@ -3,7 +3,7 @@
 class DBManagerGeodata
 {
 
-	static $db_conn=null;
+static $db_conn=null;
 	
 	static function connect()
 	{
@@ -29,7 +29,7 @@ class DBManagerGeodata
 		return $r;
 	}
 
-	public static function execute_query($sql_query, $result_type = PGSQL_ASSOC)
+	public static function execute_query($sql_query, $result_type = PGSQL_ASSOC )
 	{
 		self::connect();
 		

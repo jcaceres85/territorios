@@ -1,4 +1,5 @@
 <?php
+require_once("config.php");
 require_once("lib/framework/geovisor.php");
 require_once("lib/framework/oauth.php");
 
@@ -8,7 +9,7 @@ $access_token = $_REQUEST["access_token"];
 
 if($access_token == null || $access_token == '')
 {
-  header("Location: https://territoriosenriesgo.unah.edu.hn/");
+  header("Location: " . $MAIN_SITE_URL);
   die();
 }
 
@@ -19,13 +20,13 @@ if(sizeof($user_data)>0)
 {
   if($user_data[0]['is_superuser'] == 'f')
   {
-    header("Location: https://territoriosenriesgo.unah.edu.hn/");
-      die();  
+    header("Location: " . $MAIN_SITE_URL);
+    die();  
   }
 }
 else
 {
-  header("Location: https://territoriosenriesgo.unah.edu.hn/");
+  header("Location: " . $MAIN_SITE_URL);
   die();
 }
 
@@ -210,7 +211,7 @@ $list_geovisor = Geovisor::get_all();
 
     $('#btn-geoportal').click(function() {
       
-      $(location).attr('href', 'https://territoriosenriesgo.unah.edu.hn/');
+      $(location).attr('href', '<?php echo $MAIN_SITE_URL; ?>');
 
     });
 
@@ -236,7 +237,7 @@ else
   </head>
   <body>
     <p>Sesión expirada. Se requiere cerrar la sesión actual y abrir una de nuevo.</p>
-    <p><a href="https://territoriosenriesgo.unah.edu.hn/">Ir a página principal</a></p>
+    <p><a href="https://mapa.redspira.org/">Ir a página principal</a></p>
   </body>
 </html>
 

@@ -120,7 +120,7 @@ python-dateutil==2.8.1
 pytz==2020.4
 requests==2.25.0
 timeout-decorator==0.4.1
-python_resize_image==1.1.19
+python_resize_image==1.1.20
 
 # required by monitoring
 psutil==5.7.3
